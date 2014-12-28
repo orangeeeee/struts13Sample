@@ -36,6 +36,29 @@ $(document).ready(function(){
 			$("#" + $.trim(errPropArray[0])).css("background-color", "#63DBFF");
 		}
 	}
+
+    var listSize = Number(document.getElementById('hKinmBeanListSize').value);
+    if(listSize === "0") {
+
+		var nextIndex = 0;
+		var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
+	      + '<td>'
+	      + '<input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" />'
+	      + '<input type="hidden" name="kinmBeanList['+ nextIndex +  '].chgFlg" value="" id="changeFlg_'+ nextIndex +  '">'
+	      + '</td>'
+	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"'
+	      + ' onchange="updChangeFlg(this.id);" maxlength="50">'
+	      + '</td>'
+	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
+	      + ' onchange="updChangeFlg(this.id);" maxlength="1"></td>'
+	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
+	      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
+          + '</tr>'
+
+		  $('#zeroPoint').after(addTags);
+		  document.getElementById('hKinmBeanListSize').value = listSize + 1;
+    }
+	zeroPoint
 });
 
 $(function() {
@@ -54,15 +77,22 @@ $(function() {
         var nextIndex = Number(document.getElementById('hKinmBeanListSize').value);
         var addPointIndx = nextIndex - 1;
 
-      var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
-	      + '<td><input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" /></td>'
-	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"></td>'
-	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"></td>'
-	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"></td>'
-          + '</tr>'
+	      var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
+		      + '<td>'
+		      + '<input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" />'
+		      + '<input type="hidden" name="kinmBeanList['+ nextIndex +  '].chgFlg" value="" id="changeFlg_'+ nextIndex +  '">'
+		      + '</td>'
+		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"'
+		      + ' onchange="updChangeFlg(this.id);" maxlength="50">'
+		      + '</td>'
+		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
+		      + ' onchange="updChangeFlg(this.id);" maxlength="1"></td>'
+		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
+		      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
+	          + '</tr>'
 
-      $('#addPointTr' + addPointIndx).after(addTags);
-      document.getElementById('hKinmBeanListSize').value = nextIndex + 1;
+	      $('#addPointTr' + addPointIndx).after(addTags);
+	      document.getElementById('hKinmBeanListSize').value = nextIndex + 1;
   });
 
   /**
@@ -70,10 +100,35 @@ $(function() {
    */
   $('#delButton').click(function () {
 
-      $.each($('.delchk:checked') , function(i, value) {
+	  var delchkArray = $('.delchk:checked');
+
+	  if(delchkArray.length == 0) {
+
+		  alert("ひとつ以上チェックを付けてください。");
+
+		  return false;
+	  }
+
+      $.each(delchkArray , function(i, value) {
 
           var objStrArray = $(value).attr('id').split('_');
           $('#addPointTr' + objStrArray[1]).hide();
+          document.getElementById('changeFlg_' + objStrArray[1]).value = "-1"
       });
   });
 });
+
+/**
+ * 変更フラグ更新
+ * @param idx
+ */
+function updChangeFlg(id_name) {
+
+	var idx = id_name.split('_')[1];
+	var changeflg = document.getElementById('changeFlg_' + idx);
+
+	if( changeflg !="-1") {
+
+		document.getElementById('changeFlg_' + idx).value = "1";
+	}
+}

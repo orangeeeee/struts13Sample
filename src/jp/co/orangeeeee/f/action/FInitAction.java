@@ -21,7 +21,12 @@ public class FInitAction extends Action {
 		FInputForm inputForm = (FInputForm) form;
 		// create test data
 		ArrayList<KintaiBean> kinmBeanList = new ArrayList<KintaiBean>();
-		kinmBeanList.add(new KintaiBean());
+		KintaiBean bean =  new KintaiBean();
+		bean.setDetailId("1");
+		bean.setPjName("プロジェクト１");
+		bean.setTeam("1");
+		bean.setTime("12");
+		kinmBeanList.add(bean);
 
 		inputForm.setKinmBeanList(kinmBeanList);
 

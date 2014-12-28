@@ -2,11 +2,42 @@ package jp.co.orageeeee.bean;
 
 public class KintaiBean {
 
+	/** pk \*/
+	private String detailId;
+
 	private String pjName;
 
 	private String team;
 
 	private String time;
+
+	/**
+	 *  1：変更あり
+	 * -1：削除行
+	 */
+	private String chgFlg;
+
+	public String getDetailId() {
+		return detailId;
+	}
+
+
+
+	public void setDetailId(String detailId) {
+		this.detailId = detailId;
+	}
+
+
+
+	public String getChgFlg() {
+		return chgFlg;
+	}
+
+
+
+	public void setChgFlg(String chgFlg) {
+		this.chgFlg = chgFlg;
+	}
 
 
 

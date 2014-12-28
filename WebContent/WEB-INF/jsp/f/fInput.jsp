@@ -1,9 +1,9 @@
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="org.apache.struts.Globals"%>
 <%@ page import="org.apache.struts.util.MessageResources"%>
 <%@ page import="org.apache.struts.taglib.TagUtils"%>
 <%@ page import = "org.apache.struts.action.ActionMessages" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
@@ -12,8 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/css/common.css">
 	<script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/lib/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/f/ffuncton.js"></script>
-<title>Insert title here</title>
+<title>Struts1.3.10 Sample</title>
 </head>
 <html:form styleId="inputForm">
 <body>
@@ -54,22 +53,28 @@
 		<tr>
 			<th>削除</th>
 			<th>プロジェクト名</th>
-			<th>チーム名</th>
+			<th>チーム</th>
 			<th>作業時間</th>
 		</tr>
+		<tr id="zeroPoint"></tr>
 		<logic:iterate id="kinmBeanList" name="fInputForm" property="kinmBeanList" indexId="idx">
 		<tr  id="addPointTr${idx}">
 			<td>
 				<input type="checkbox" id="delchkId_${idx}" class="delchk" />
+				<html:hidden styleId="changeFlg_${idx}" name="kinmBeanList" property="chgFlg" indexed="true"/>
+				<html:hidden styleId="detailId_${idx}" name="kinmBeanList" property="detailId" indexed="true"/>
 			</td>
 			<td>
-				<html:text styleId="pjName_${idx}" name="kinmBeanList" property="pjName" indexed="true"/>
+				<html:text styleId="pjName_${idx}" name="kinmBeanList" property="pjName" indexed="true"
+					onchange="updChangeFlg(this.id);" maxlength="50"/>
 			</td>
 			<td>
-				<html:text styleId="team_${idx}" name="kinmBeanList" property="team" indexed="true"/>
+				<html:text styleId="team_${idx}" name="kinmBeanList" property="team" indexed="true"
+					onchange="updChangeFlg(this.id);" maxlength="1"/>
 			</td>
 			<td>
-				<html:text styleId="time_${idx}" name="kinmBeanList" property="time" indexed="true"/>
+				<html:text styleId="time_${idx}" name="kinmBeanList" property="time" indexed="true"
+					onchange="updChangeFlg(this.id);" maxlength="3"/>
 			</td>
 		</tr>
 		</logic:iterate>
@@ -79,6 +84,7 @@
 	<br>
 	<html:button styleId="regButton" property="buttonName">登録</html:button>
 </fieldset>
+<script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/f/ffuncton.js"></script>
 </body>
 </html:form>
 </html>

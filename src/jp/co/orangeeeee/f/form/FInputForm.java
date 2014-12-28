@@ -6,7 +6,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import jp.co.orageeeee.bean.KintaiBean;
+import jp.co.orageeeee.util.ValidatUtil;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -75,9 +77,31 @@ public class FInputForm extends ActionForm {
 
 		for(int i=0,listSize=kinmBeanList.size(); i < listSize; i++ ) {
 
-			errors.add("pjName_" + i ,new ActionMessage(ERR_REQ));
-			errors.add("team_" + i,new ActionMessage(ERR_NUM));
-			errors.add("time_" + i,new ActionMessage(ERR_FMT));
+			KintaiBean bean = kinmBeanList.get(i);
+
+			if("1".equals(bean.getChgFlg())) {
+
+				if(StringUtils.isEmpty(bean.getPjName())) {
+
+					errors.add("pjName_" + i ,new ActionMessage(ERR_REQ));
+				}
+				if(StringUtils.isEmpty(bean.getTeam())) {
+
+					errors.add("team_" + i ,new ActionMessage(ERR_REQ));
+				}
+			}
+
+			if(!StringUtils.isEmpty(bean.getTeam())
+					&& !ValidatUtil.isNumber(bean.getTeam())) {
+
+				errors.add("team_" + i ,new ActionMessage(ERR_NUM));
+			}
+
+			if(!StringUtils.isEmpty(bean.getTime())
+					&& !ValidatUtil.isNumber(bean.getTime())) {
+
+				errors.add("time_" + i,new ActionMessage(ERR_FMT));
+			}
 		}
 		return errors;
 	}
