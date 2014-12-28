@@ -3,7 +3,6 @@ package jp.co.orangeeeee.f.form;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import jp.co.orageeeee.bean.KintaiBean;
@@ -11,6 +10,7 @@ import jp.co.orageeeee.bean.KintaiBean;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 public class FInputForm extends ActionForm {
 
@@ -62,10 +62,13 @@ public class FInputForm extends ActionForm {
 	 * バリデーション
 	 */
 	@Override
-	public ActionErrors validate(ActionMapping arg0, ServletRequest arg1) {
-
-
-		return super.validate(arg0, arg1);
+	public ActionErrors validate(ActionMapping mapping,
+			HttpServletRequest request) {
+		ActionErrors errors=new ActionErrors();
+		errors.add("pjName",new ActionMessage("invalid.name"));
+		errors.add("team",new ActionMessage("invalid.name"));
+		errors.add("time",new ActionMessage("invalid.name"));
+		return errors;
 	}
 
 }

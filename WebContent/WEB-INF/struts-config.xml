@@ -48,7 +48,9 @@
 		</action>
 		<action name="fInputForm" path="/freg"
 			type="jp.co.orangeeeee.f.action.FRegAction"
-			validate="false" scope="request">
+			validate="true"
+			scope="request"
+			input="/WEB-INF/jsp/f/fInput.jsp">
 			<forward name="success" path="/WEB-INF/jsp/f/fInput.jsp" />
 		</action>
     </action-mappings>
