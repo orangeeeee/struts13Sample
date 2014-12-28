@@ -1,0 +1,72 @@
+body {
+    background-color: rgb(39, 43, 48);
+    color: #b3b3b3;;
+}
+.main-bg {
+    background-color:rgb(255, 255, 255);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+
+.text-box-default {
+    border: none;
+    border-collapse:collapse;
+    border-spacing: 0px;
+    background-color: #FFFFFF;
+}
+
+.line-add-table {;
+    color: #333;
+    border: 1px solid #cccccc;
+    border-collapse:collapse;
+    border-spacing: 0px;
+    background-color: #FFFFFF;
+}
+
+.line-add-table th{
+    font-size: 11pt;
+    color: #333;
+    border: 1px dotted #999999;
+    background-color: rgb(238, 238, 238);
+    border-collapse: separate;
+    padding: 2px;
+}
+
+.line-add-table td{
+    font-size: 10pt;
+    color: #333;
+    border: 1px solid #cccccc;
+    background-color: #FFFFFF;
+    border-collapse: separate;
+    padding: 2px;
+}
+
+.soft-list-table {
+    margin-top: 15px;
+    color: #333;
+    border: 1px dotted #cccccc;
+    border-collapse:collapse;
+    border-spacing: 0px;
+    background-color: #FFFFFF;
+
+}
+
+.soft-list-table th{
+    font-size: 11pt;
+    color: #333;
+    border: 1px dotted #999999;
+    background-color: rgb(238, 238, 238);
+    border-collapse: separate;
+    padding: 2px;
+
+}
+
+.soft-list-table td{
+    font-size: 10pt;
+    color: #333;
+    border: 1px dotted #cccccc;
+    background-color: #FFFFFF;
+    border-collapse: separate;
+    padding: 2px;
+
+}
