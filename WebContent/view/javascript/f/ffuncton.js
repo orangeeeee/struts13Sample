@@ -14,11 +14,27 @@ $(document).ready(function(){
 
 		var errPropArray =  errArray[i].split("=");
 
+		//必須チェックエラー
 		if(errPropArray[1] === "err_req") {
 
+			//空白を除去しないといけない
+			$("#" + $.trim(errPropArray[0])).css("background-color", "#FFB1B1");
+		}else if(errPropArray[1] === "err_num") {
+			//数値チェックエラー
+
+			//空白を除去しないといけない
+			$("#" + $.trim(errPropArray[0])).css("background-color", "#B8FAFF");
+		}else if(errPropArray[1] === "err_jp") {
+			//日本語チェックエラー
+
+			//空白を除去しないといけない
+			$("#" + $.trim(errPropArray[0])).css("background-color", "#B2FFDE");
+		}else if(errPropArray[1] === "err_fmt") {
+			//日本語チェックエラー
+
+			//空白を除去しないといけない
+			$("#" + $.trim(errPropArray[0])).css("background-color", "#63DBFF");
 		}
-		//空白を除去しないといけない
-		$("#" + $.trim(errPropArray[0])).css("background-color", "#09C");
 	}
 });
 
