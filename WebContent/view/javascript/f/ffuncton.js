@@ -49,16 +49,31 @@ $(function() {
 
 	});
 
-    $('#addBtn').click(function () {
+    $('#addButton').click(function () {
 
-          var nextIndex = Number(document.getElementById('tableListSize').value);
-          var addPointIndx = nextIndex - 1;
+        var nextIndex = Number(document.getElementById('hKinmBeanListSize').value);
+        var addPointIndx = nextIndex - 1;
 
-        var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
-            + '<td><input type="text" name="list['+ nextIndex + ']"> </td>'
-            + '</tr>'
+      var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
+	      + '<td><input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" /></td>'
+	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"></td>'
+	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"></td>'
+	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"></td>'
+          + '</tr>'
 
-        $('#addPointTr' + addPointIndx).after(addTags);
-        document.getElementById('tableListSize').value = nextIndex + 1;
-    });
+      $('#addPointTr' + addPointIndx).after(addTags);
+      document.getElementById('hKinmBeanListSize').value = nextIndex + 1;
+  });
+
+  /**
+   * 削除ボタン押下処理
+   */
+  $('#delButton').click(function () {
+
+      $.each($('.delchk:checked') , function(i, value) {
+
+          var objStrArray = $(value).attr('id').split('_');
+          $('#addPointTr' + objStrArray[1]).hide();
+      });
+  });
 });

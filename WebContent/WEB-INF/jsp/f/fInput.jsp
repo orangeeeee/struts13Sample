@@ -47,6 +47,9 @@
 </fieldset>
 <br>
 <fieldset class="main-bg">
+	<html:button styleClass="button-s" styleId="addButton" property="buttonName">行追加</html:button>
+	<html:button styleClass="button-s" styleId="delButton" property="buttonName">行削除</html:button>
+	<br>
 	<table  class="line-add-table">
 		<tr>
 			<th>削除</th>
@@ -55,9 +58,9 @@
 			<th>作業時間</th>
 		</tr>
 		<logic:iterate id="kinmBeanList" name="fInputForm" property="kinmBeanList" indexId="idx">
-		<tr>
+		<tr  id="addPointTr${idx}">
 			<td>
-				<input type="checkbox" />
+				<input type="checkbox" id="delchkId_${idx}" class="delchk" />
 			</td>
 			<td>
 				<html:text styleId="pjName_${idx}" name="kinmBeanList" property="pjName" indexed="true"/>
