@@ -1,4 +1,26 @@
+$(document).ready(function(){
+    // 実行する処理
+	var errorsString = document.getElementById('errorsString').value;
 
+	//正規表現で無駄な文字列を除去
+	errorsString = errorsString.replace(/\[|{|}|\]|/g,"");
+
+	var errArray = errorsString.split(",");
+	var errSize =errArray.length;
+
+	var i;
+
+	for(i=0; i < errSize; i++) {
+
+		var errPropArray =  errArray[i].split("=");
+
+		if(errPropArray[1] === "err_req") {
+
+		}
+		//空白を除去しないといけない
+		$("#" + $.trim(errPropArray[0])).css("background-color", "#09C");
+	}
+});
 
 $(function() {
 

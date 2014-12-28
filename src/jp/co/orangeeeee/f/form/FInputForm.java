@@ -64,10 +64,21 @@ public class FInputForm extends ActionForm {
 	@Override
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
+
+		final String ERR_REQ = "err_req";
+		final String ERR_NUM = "err_num";
+		final String ERR_FMT = "err_fmt";
+		final String ERR_JP = "err_jp";
+
+
 		ActionErrors errors=new ActionErrors();
-		errors.add("pjName",new ActionMessage("invalid.name"));
-		errors.add("team",new ActionMessage("invalid.name"));
-		errors.add("time",new ActionMessage("invalid.name"));
+
+		for(int i=0,listSize=kinmBeanList.size(); i < listSize; i++ ) {
+
+			errors.add("pjName_" + i ,new ActionMessage(ERR_REQ));
+			errors.add("team_" + i,new ActionMessage(ERR_REQ));
+			errors.add("time_" + i,new ActionMessage(ERR_FMT));
+		}
 		return errors;
 	}
 

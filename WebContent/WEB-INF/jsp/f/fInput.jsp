@@ -15,15 +15,15 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/f/ffuncton.js"></script>
 <title>Insert title here</title>
 </head>
+<html:form styleId="inputForm">
 <body>
 <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
 <%--
 	 Struts1.2では、RequestUtils.getActionMessages(pageContext, Globals.ERROR_KEY);
 	 Struts1.3では、TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
  --%>
-<%-- <input type="hidden" id="contextPath" value="<%TagUtils.getInstance().getActionMessages(pageContext, Globals.MESSAGES_KEY); %>"> --%>
+<input type="hidden" id="errorsString" value="<%=TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY) %>">
 <h1>サンプルだから</h1>
-<html:form styleId="inputForm">
 <%
    ActionMessages errors = null;
    try {
@@ -48,13 +48,13 @@
 				<input type="checkbox" />
 			</td>
 			<td>
-				<html:text name="kinmBeanList" property="pjName" indexed="true"/>
+				<html:text styleId="pjName_${idx}" name="kinmBeanList" property="pjName" indexed="true"/>
 			</td>
 			<td>
-				<html:text name="kinmBeanList" property="team" indexed="true"/>
+				<html:text styleId="team_${idx}" name="kinmBeanList" property="team" indexed="true"/>
 			</td>
 			<td>
-				<html:text name="kinmBeanList" property="time" indexed="true"/>
+				<html:text styleId="time_${idx}" name="kinmBeanList" property="time" indexed="true"/>
 			</td>
 		</tr>
 		</logic:iterate>
@@ -64,6 +64,6 @@
 	<br>
 	<html:button styleId="regButton" property="buttonName">登録</html:button>
 </fieldset>
-</html:form>
 </body>
+</html:form>
 </html>
