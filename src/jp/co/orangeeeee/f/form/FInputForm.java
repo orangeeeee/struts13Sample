@@ -33,6 +33,7 @@ public class FInputForm extends ActionForm {
 				tmpKinmBeanList.add(new KintaiBean());
 			}
 			kinmBeanList = tmpKinmBeanList;
+
 		}
 	}
 

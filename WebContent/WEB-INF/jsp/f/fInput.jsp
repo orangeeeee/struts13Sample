@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="org.apache.struts.Globals"%>
+<%@ page import="org.apache.struts.util.MessageResources"%>
+<%@ page import="org.apache.struts.taglib.TagUtils"%>
+<%@ page import = "org.apache.struts.action.ActionMessages" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
@@ -13,8 +17,22 @@
 </head>
 <body>
 <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
+<%--
+	 Struts1.2では、RequestUtils.getActionMessages(pageContext, Globals.ERROR_KEY);
+	 Struts1.3では、TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
+ --%>
+<%-- <input type="hidden" id="contextPath" value="<%TagUtils.getInstance().getActionMessages(pageContext, Globals.MESSAGES_KEY); %>"> --%>
 <h1>サンプルだから</h1>
 <html:form styleId="inputForm">
+<%
+   ActionMessages errors = null;
+   try {
+     errors = TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
+   } catch (JspException e) {
+     out.println(e);
+   }
+   out.println(errors);
+%>
 <br>
 <fieldset class="main-bg">
 	<table  class="line-add-table">
@@ -43,7 +61,6 @@
 	</table>
 	<bean:size id="kinmBeanListSize" name="fInputForm" property="kinmBeanList" />
 	<input type="hidden" id="hKinmBeanListSize" name="kinmBeanListSize" value="<bean:write name="kinmBeanListSize" />"/>
-
 	<br>
 	<html:button styleId="regButton" property="buttonName">登録</html:button>
 </fieldset>
