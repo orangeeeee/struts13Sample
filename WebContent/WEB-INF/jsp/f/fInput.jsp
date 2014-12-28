@@ -24,15 +24,27 @@
  --%>
 <input type="hidden" id="errorsString" value="<%=TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY) %>">
 <h1>サンプルだから</h1>
-<%
-   ActionMessages errors = null;
-   try {
-     errors = TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
-   } catch (JspException e) {
-     out.println(e);
-   }
-   out.println(errors);
-%>
+<br>
+<fieldset class="main-bg">
+<table class="line-add-table" >
+	<tr>
+		<th>ActionErrors Trace</th>
+	</tr>
+	<tr>
+		<td height="50px" width="500px">
+			<%
+			   ActionMessages errors = null;
+			   try {
+			     errors = TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
+			   } catch (JspException e) {
+			     out.println(e);
+			   }
+			   out.println(errors);
+			%>
+		</td>
+	<tr>
+</table>
+</fieldset>
 <br>
 <fieldset class="main-bg">
 	<table  class="line-add-table">
