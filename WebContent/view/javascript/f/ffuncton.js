@@ -10,30 +10,35 @@ $(document).ready(function(){
 
 	var i;
 
-	for(i=0; i < errSize; i++) {
+	if(errorsString != "") {
 
-		var errPropArray =  errArray[i].split("=");
+		for(i=0; i < errSize; i++) {
 
-		//必須チェックエラー
-		if(errPropArray[1] === "err_req") {
+			var errPropArray =  errArray[i].split("=");
 
-			//空白を除去しないといけない
-			$("#" + $.trim(errPropArray[0])).css("background-color", "#FFB1B1");
-		}else if(errPropArray[1] === "err_num") {
-			//数値チェックエラー
+			//必須チェックエラー
+			if(errPropArray[1] === "err_req") {
 
-			//空白を除去しないといけない
-			$("#" + $.trim(errPropArray[0])).css("background-color", "#B8FAFF");
-		}else if(errPropArray[1] === "err_aphNum") {
-			//英数チェックエラー
+				//空白を除去しないといけない
+				$("#" + $.trim(errPropArray[0])).css("background-color", "#FFB1B1");
+			}else if(errPropArray[1] === "err_num") {
+				//数値チェックエラー
 
-			//空白を除去しないといけない
-			$("#" + $.trim(errPropArray[0])).css("background-color", "#B2FFDE");
-		}else if(errPropArray[1] === "err_fmt") {
-			//フォーマットチェックエラー
+				//空白を除去しないといけない
+				$("#" + $.trim(errPropArray[0])).css("background-color", "#B8FAFF");
+			}else if(errPropArray[1] === "err_aphNum") {
+				//英数チェックエラー
 
-			//空白を除去しないといけない
-			$("#" + $.trim(errPropArray[0])).css("background-color", "#63DBFF");
+				//空白を除去しないといけない
+				$("#" + $.trim(errPropArray[0])).css("background-color", "#B2FFDE");
+			}else if(errPropArray[1] === "err_fmt") {
+				//フォーマットチェックエラー
+
+				//空白を除去しないといけない
+				$("#" + $.trim(errPropArray[0])).css("background-color", "#63DBFF");
+			}
+			$(".error-expend-area").show();
+
 		}
 	}
 

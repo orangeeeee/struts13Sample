@@ -25,50 +25,52 @@
 <h1>サンプルだから</h1>
 <br>
 <fieldset class="main-bg">
-<table class="line-add-table" >
-	<tr>
-		<th>ActionErrors Trace</th>
-	</tr>
-	<tr>
-		<td height="50px" width="500px">
-			<%
-			   ActionMessages errors = null;
-			   try {
-			     errors = TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
-			   } catch (JspException e) {
-			     out.println(e);
-			   }
-			   out.println(errors);
-			%>
-		</td>
-	<tr>
-</table>
-</fieldset>
-<br>
-<fieldset class="main-bg">
-	<table class="errs-table">
+	<table class="line-add-table" >
 		<tr>
-			<td width="13px;">
-				<div style="background-color: #FFB1B1;">
-				</div>
-			</td>
-			<td>必須エラー</td>
+			<th>ActionErrors Trace</th>
 		</tr>
 		<tr>
-			<td>
-				<div style="background-color: #B8FAFF;">
-				</div>
+			<td height="50px" width="500px">
+				<%
+				   ActionMessages errors = null;
+				   try {
+				     errors = TagUtils.getInstance().getActionMessages(pageContext, Globals.ERROR_KEY);
+				   } catch (JspException e) {
+				     out.println(e);
+				   }
+				   out.println(errors);
+				%>
 			</td>
-			<td>数値エラー</td>
-		</tr>
 		<tr>
-			<td>
-				<div style="background-color: #B2FFDE;">
-				</div>
-			</td>
-			<td>英数エラー</td>
-		</tr>
 	</table>
+	</fieldset>
+	<br>
+	<fieldset class="main-bg">
+	<div class="error-expend-area" style="display: none;" >
+		<table class="errs-table">
+			<tr>
+				<td width="13px;">
+					<div style="background-color: #FFB1B1;">
+					</div>
+				</td>
+				<td>必須エラー</td>
+			</tr>
+			<tr>
+				<td>
+					<div style="background-color: #B8FAFF;">
+					</div>
+				</td>
+				<td>半角数値エラー</td>
+			</tr>
+			<tr>
+				<td>
+					<div style="background-color: #B2FFDE;">
+					</div>
+				</td>
+				<td>半角英数エラー</td>
+			</tr>
+		</table>
+	</div>
 	<html:button styleClass="button-s" styleId="addButton" property="buttonName">行追加</html:button>
 	<html:button styleClass="button-s" styleId="delButton" property="buttonName">行削除</html:button>
 	<br>
