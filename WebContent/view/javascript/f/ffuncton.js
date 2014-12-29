@@ -24,13 +24,13 @@ $(document).ready(function(){
 
 			//空白を除去しないといけない
 			$("#" + $.trim(errPropArray[0])).css("background-color", "#B8FAFF");
-		}else if(errPropArray[1] === "err_jp") {
-			//日本語チェックエラー
+		}else if(errPropArray[1] === "err_aphNum") {
+			//英数チェックエラー
 
 			//空白を除去しないといけない
 			$("#" + $.trim(errPropArray[0])).css("background-color", "#B2FFDE");
 		}else if(errPropArray[1] === "err_fmt") {
-			//日本語チェックエラー
+			//フォーマットチェックエラー
 
 			//空白を除去しないといけない
 			$("#" + $.trim(errPropArray[0])).css("background-color", "#63DBFF");
@@ -50,7 +50,7 @@ $(document).ready(function(){
 	      + ' onchange="updChangeFlg(this.id);" maxlength="50">'
 	      + '</td>'
 	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
-	      + ' onchange="updChangeFlg(this.id);" maxlength="1"></td>'
+	      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
 	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
 	      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
           + '</tr>'
@@ -86,7 +86,7 @@ $(function() {
 		      + ' onchange="updChangeFlg(this.id);" maxlength="50">'
 		      + '</td>'
 		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
-		      + ' onchange="updChangeFlg(this.id);" maxlength="1"></td>'
+		      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
 		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
 		      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
 	          + '</tr>'

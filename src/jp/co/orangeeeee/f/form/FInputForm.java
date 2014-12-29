@@ -70,7 +70,7 @@ public class FInputForm extends ActionForm {
 		final String ERR_REQ = "err_req";
 		final String ERR_NUM = "err_num";
 		final String ERR_FMT = "err_fmt";
-		final String ERR_JP = "err_jp";
+		final String ERR_APHNUM = "err_aphNum";
 
 
 		ActionErrors errors=new ActionErrors();
@@ -92,9 +92,9 @@ public class FInputForm extends ActionForm {
 			}
 
 			if(!StringUtils.isEmpty(bean.getTeam())
-					&& !ValidatUtil.isNumber(bean.getTeam())) {
+					&& !ValidatUtil.isAphNumber(bean.getTeam())) {
 
-				errors.add("team_" + i ,new ActionMessage(ERR_NUM));
+				errors.add("team_" + i ,new ActionMessage(ERR_APHNUM));
 			}
 
 			if(!StringUtils.isEmpty(bean.getTime())

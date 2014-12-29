@@ -1,6 +1,9 @@
 body {
     background-color: rgb(39, 43, 48);
-    color: #b3b3b3;;
+
+}
+h1 {
+	    color: #b3b3b3;
 }
 .main-bg {
     background-color:rgb(255, 255, 255);
@@ -68,12 +71,33 @@ body {
     background-color: #FFFFFF;
     border-collapse: separate;
     padding: 2px;
-
+   	text-align: left;
+	margin-bottom: 10px;
 }
 
 .button-s {
-
+	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size:10pt;
 	font-family:富士ポップ;
+
+}
+.errs-table {
+
+	width: 500px;
+}
+.errs-table table{
+
+	width: 100%;
+	table-layout: fixed;
+	font-size: 8pt;
+}
+.errs-table td{
+	font-size: 9pt;
+	color: #0000 !important;
+}
+.errs-table div{
+
+	 width: 10px; height: 10px;
+
 }

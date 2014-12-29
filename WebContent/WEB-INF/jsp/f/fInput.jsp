@@ -46,6 +46,29 @@
 </fieldset>
 <br>
 <fieldset class="main-bg">
+	<table class="errs-table">
+		<tr>
+			<td width="13px;">
+				<div style="background-color: #FFB1B1;">
+				</div>
+			</td>
+			<td>必須エラー</td>
+		</tr>
+		<tr>
+			<td>
+				<div style="background-color: #B8FAFF;">
+				</div>
+			</td>
+			<td>数値エラー</td>
+		</tr>
+		<tr>
+			<td>
+				<div style="background-color: #B2FFDE;">
+				</div>
+			</td>
+			<td>英数エラー</td>
+		</tr>
+	</table>
 	<html:button styleClass="button-s" styleId="addButton" property="buttonName">行追加</html:button>
 	<html:button styleClass="button-s" styleId="delButton" property="buttonName">行削除</html:button>
 	<br>
@@ -70,7 +93,7 @@
 			</td>
 			<td>
 				<html:text styleId="team_${idx}" name="kinmBeanList" property="team" indexed="true"
-					onchange="updChangeFlg(this.id);" maxlength="1"/>
+					onchange="updChangeFlg(this.id);" maxlength="3"/>
 			</td>
 			<td>
 				<html:text styleId="time_${idx}" name="kinmBeanList" property="time" indexed="true"
