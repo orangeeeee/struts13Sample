@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/css/common.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/javascript/lib/grid/Grid.css">
 	<script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/lib/jquery-1.11.0.min.js"></script>
 <title>Struts1.3.10 Sample</title>
 </head>
@@ -110,6 +111,7 @@
 	<html:button styleId="regButton" property="buttonName">登録</html:button>
 </fieldset>
 <script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/f/ffuncton.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/view/javascript/lib/grid/Grid.js"></script>
 </body>
 </html:form>
 </html>
