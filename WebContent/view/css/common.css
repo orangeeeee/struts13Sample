@@ -84,12 +84,12 @@ h1 {
 }
 .errs-table {
 
-	width: 500px;
+/* 	width: 500px; */
 }
 .errs-table table{
 
-	width: 100%;
-	table-layout: fixed;
+/* 	width: 100%; */
+/* 	table-layout: fixed; */
 	font-size: 8pt;
 }
 .errs-table td{

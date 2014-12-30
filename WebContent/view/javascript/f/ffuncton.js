@@ -63,7 +63,6 @@ $(document).ready(function(){
 		  $('#zeroPoint').after(addTags);
 		  document.getElementById('hKinmBeanListSize').value = listSize + 1;
     }
-	zeroPoint
 });
 
 $(function() {
