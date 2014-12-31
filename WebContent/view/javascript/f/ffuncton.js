@@ -46,24 +46,11 @@ $(document).ready(function(){
     if(listSize === "0") {
 
 		var nextIndex = 0;
-		var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
-	      + '<td>'
-	      + '<input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" />'
-	      + '<input type="hidden" name="kinmBeanList['+ nextIndex +  '].chgFlg" value="" id="changeFlg_'+ nextIndex +  '">'
-	      + '</td>'
-	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"'
-	      + ' onchange="updChangeFlg(this.id);" maxlength="50">'
-	      + '</td>'
-	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
-	      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
-	      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
-	      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
-          + '</tr>'
+		var addTags = getInsHtmlTags(nextIndex);
 
-		  $('#zeroPoint').after(addTags);
-		  document.getElementById('hKinmBeanListSize').value = listSize + 1;
+		$('#zeroPoint').after(addTags);
+		document.getElementById('hKinmBeanListSize').value = listSize + 1;
     }
-	zeroPoint
 });
 
 $(function() {
@@ -79,25 +66,13 @@ $(function() {
 
     $('#addButton').click(function () {
 
-        var nextIndex = Number(document.getElementById('hKinmBeanListSize').value);
-        var addPointIndx = nextIndex - 1;
+		var nextIndex = Number(document.getElementById('hKinmBeanListSize').value);
+		var addPointIndx = nextIndex - 1;
 
-	      var addTags = '<tr id="addPointTr'+ nextIndex +  '">'
-		      + '<td>'
-		      + '<input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" />'
-		      + '<input type="hidden" name="kinmBeanList['+ nextIndex +  '].chgFlg" value="" id="changeFlg_'+ nextIndex +  '">'
-		      + '</td>'
-		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"'
-		      + ' onchange="updChangeFlg(this.id);" maxlength="50">'
-		      + '</td>'
-		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
-		      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
-		      + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
-		      + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
-	          + '</tr>'
+		var addTags = getInsHtmlTags(nextIndex);
 
-	      $('#addPointTr' + addPointIndx).after(addTags);
-	      document.getElementById('hKinmBeanListSize').value = nextIndex + 1;
+		$('#addPointTr' + addPointIndx).after(addTags);
+		document.getElementById('hKinmBeanListSize').value = nextIndex + 1;
   });
 
   /**
@@ -136,4 +111,42 @@ function updChangeFlg(id_name) {
 
 		document.getElementById('changeFlg_' + idx).value = "1";
 	}
-}
+};
+/**
+ * １レコード分の HTMLタグを返す。
+ * @param nextIndex
+ * @returns {String}
+ */
+function getInsHtmlTags(nextIndex) {
+
+    return  '<tr id="addPointTr'+ nextIndex +  '">'
+    + '<td>'
+    + '<input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" />'
+    + '<input type="hidden" name="kinmBeanList['+ nextIndex +  '].chgFlg" value="" id="changeFlg_'+ nextIndex +  '">'
+    + '</td>'
+    + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].pjName" value="" id="pjName_'+ nextIndex + '"'
+    + ' onchange="updChangeFlg(this.id);" maxlength="50">'
+    + '</td>'
+    + '<td><input type="text" name="kinmBeanList['+ nextIndex + '].team" value="" id="team_'+ nextIndex + '"'
+    + ' onchange="updChangeFlg(this.id);" maxlength="3">'
+    + '</td>'
+    + '<td>'
+    + '<table class="tableInTable">'
+    + '<tr>'
+    + '<td class="omg-th omg-top">'
+    + '<input type="text" name="kinmBeanList['+ nextIndex + '].omg1" maxlength="3"'
+    + ' value="" onchange="updChangeFlg(this.id);" id="omg1_'+ nextIndex + '" class="widht-omg-txt">'
+    + '</td>'
+    + '</tr>'
+    + '<tr>'
+    + '<td class="omg-th omg-bottom">'
+    + '<input type="text" name="kinmBeanList['+ nextIndex + '].omg2" maxlength="3"'
+    + ' value="" onchange="updChangeFlg(this.id);" id="omg2_'+ nextIndex + '" class="widht-omg-txt">'
+    + '</td>'
+    + '</tr>'
+    + '</table>'
+    + '</td>'
+    + '<td>'
+    + '<input type="text" name="kinmBeanList['+ nextIndex + '].time" value="" id="time_'+ nextIndex + '"'
+    + ' onchange="updChangeFlg(this.id);" maxlength="3"></td>'
+};

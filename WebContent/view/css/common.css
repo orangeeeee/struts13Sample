@@ -3,8 +3,28 @@ body {
 
 }
 h1 {
-	    color: #b3b3b3;
+	color: #b3b3b3;
 }
+.delchk-td{
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.delchk-th {
+	text-align:center !important;
+	width:50px;
+}
+.omg-th {
+	text-align:center;
+	width:50px;
+}
+
+
+.widht-omg-txt {
+	width:30px;
+}
+
+
 .main-bg {
     background-color:rgb(255, 255, 255);
     box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05);
@@ -17,62 +37,62 @@ h1 {
     border-spacing: 0px;
     background-color: #FFFFFF;
 }
+/** Tableの中のテーブル */
+.tableInTable {
+	border-width: 0px;
+    border-spacing: 0px;
+    border-width: 0px;
+}
+.tableInTable table{
+	border: 0px;
+	padding:0px;
+	border-width: 0px;
+}
+.tableInTable tr {
+	min-height: 30px !important;
+	height: 30px !important;
+}
 
-.line-add-table {;
+.tableInTable .omg-top {
+
+	border-width: 0px 0px 1px 0px !important;
+}
+.tableInTable .omg-bottom {
+	border-width: 0px !important;
+}
+
+.line-add-table {
+	table-layout:fixed;
+	width:1000px;
     color: #333;
-    border: 1px solid #cccccc;
     border-collapse:collapse;
     border-spacing: 0px;
     background-color: #FFFFFF;
 }
-
+.line-add-table table{
+	widht:100%;
+	border-collapse:collapse;
+}
+.line-add-table tr {
+	padding:0px;
+}
 .line-add-table th{
     font-size: 11pt;
     color: #333;
     border: 1px dotted #999999;
     background-color: rgb(238, 238, 238);
     border-collapse: separate;
-    padding: 2px;
+	padding:0px;
+
 }
 
-.line-add-table td{
+.line-add-table td {
     font-size: 10pt;
     color: #333;
     border: 1px solid #cccccc;
     background-color: #FFFFFF;
     border-collapse: separate;
-    padding: 2px;
-}
-
-.soft-list-table {
-    margin-top: 15px;
-    color: #333;
-    border: 1px dotted #cccccc;
-    border-collapse:collapse;
-    border-spacing: 0px;
-    background-color: #FFFFFF;
-
-}
-
-.soft-list-table th{
-    font-size: 11pt;
-    color: #333;
-    border: 1px dotted #999999;
-    background-color: rgb(238, 238, 238);
-    border-collapse: separate;
-    padding: 2px;
-
-}
-
-.soft-list-table td{
-    font-size: 10pt;
-    color: #333;
-    border: 1px dotted #cccccc;
-    background-color: #FFFFFF;
-    border-collapse: separate;
-    padding: 2px;
-   	text-align: left;
-	margin-bottom: 10px;
+	padding:0px;
 }
 
 .button-s {
@@ -84,12 +104,12 @@ h1 {
 }
 .errs-table {
 
-	width: 500px;
+/* 	width: 500px; */
 }
 .errs-table table{
 
-	width: 100%;
-	table-layout: fixed;
+/* 	width: 100%; */
+/* 	table-layout: fixed; */
 	font-size: 8pt;
 }
 .errs-table td{

@@ -76,15 +76,25 @@
 	<br>
 	<table  class="line-add-table">
 		<tr>
-			<th>削除</th>
+			<th class="delchk-th">削除</th>
 			<th>プロジェクト名</th>
 			<th>チーム</th>
+			<th class="omg-th">
+				<table class="tableInTable">
+					<tr>
+						<th class="omg-th omg-top">omg1</th>
+					</tr>
+					<tr>
+						<th class="omg-th omg-bottom">omg2</th>
+					</tr>
+				</table>
+			</th>
 			<th>作業時間</th>
 		</tr>
 		<tr id="zeroPoint"></tr>
 		<logic:iterate id="kinmBeanList" name="fInputForm" property="kinmBeanList" indexId="idx">
-		<tr  id="addPointTr${idx}">
-			<td>
+		<tr id="addPointTr${idx}">
+			<td class="delchk-td">
 				<input type="checkbox" id="delchkId_${idx}" class="delchk" />
 				<html:hidden styleId="changeFlg_${idx}" name="kinmBeanList" property="chgFlg" indexed="true"/>
 				<html:hidden styleId="detailId_${idx}" name="kinmBeanList" property="detailId" indexed="true"/>
@@ -96,6 +106,22 @@
 			<td>
 				<html:text styleId="team_${idx}" name="kinmBeanList" property="team" indexed="true"
 					onchange="updChangeFlg(this.id);" maxlength="3"/>
+			</td>
+			<td>
+				<table class="tableInTable">
+					<tr>
+						<td class="omg-th omg-top">
+							<html:text name="kinmBeanList" property="omg1" indexed="true" maxlength="3"
+								styleId="omg1_${idx}" styleClass="widht-omg-txt" onchange="updChangeFlg(this.id);" />
+						</td>
+					</tr>
+					<tr>
+						<td class="omg-th omg-bottom">
+							<html:text name="kinmBeanList" property="omg2" indexed="true" maxlength="3"
+								styleId="omg2_${idx}" styleClass="widht-omg-txt" onchange="updChangeFlg(this.id);" />
+						</td>
+					</tr>
+				</table>
 			</td>
 			<td>
 				<html:text styleId="time_${idx}" name="kinmBeanList" property="time" indexed="true"
