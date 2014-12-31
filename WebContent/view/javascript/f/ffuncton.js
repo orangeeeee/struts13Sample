@@ -120,7 +120,7 @@ function updChangeFlg(id_name) {
 function getInsHtmlTags(nextIndex) {
 
     return  '<tr id="addPointTr'+ nextIndex +  '">'
-    + '<td>'
+    + '<td class="delchk-td">'
     + '<input type="checkbox" class="delchk" id="delchkId_'+ nextIndex +  '" />'
     + '<input type="hidden" name="kinmBeanList['+ nextIndex +  '].chgFlg" value="" id="changeFlg_'+ nextIndex +  '">'
     + '</td>'
