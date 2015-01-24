@@ -73,16 +73,13 @@ h1 {
 	widht:100%;
 	border-collapse:collapse;
 }
-.line-add-table tr {
-	padding:0px;
-}
+
 .line-add-table th{
     font-size: 11pt;
     color: #333;
     border: 1px dotted #999999;
     background-color: rgb(238, 238, 238);
-    border-collapse: separate;
-	padding:0px;
+    padding:0px;
 
 }
 
@@ -91,7 +88,6 @@ h1 {
     color: #333;
     border: 1px solid #cccccc;
     background-color: #FFFFFF;
-    border-collapse: separate;
 	padding:0px;
 }
 

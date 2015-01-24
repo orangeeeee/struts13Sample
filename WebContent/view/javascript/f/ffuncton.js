@@ -53,9 +53,17 @@ $(document).ready(function(){
     }
 });
 
+var submit_flg = false;
 $(function() {
 
 	$('#regButton').click(function () {
+
+		if(submit_flg) {
+			alert("連続でボタンを押下しないでください。");
+		}
+
+		submit_flg = true;
+
 		var cpath =document.getElementById('contextPath').value;
 		var oFrom = document.getElementById('inputForm');
 		oFrom.action = cpath + "/freg.do";
@@ -66,6 +74,10 @@ $(function() {
 
     $('#addButton').click(function () {
 
+		if(submit_flg) {
+			return false;
+		}
+
 		var nextIndex = Number(document.getElementById('hKinmBeanListSize').value);
 		var addPointIndx = nextIndex - 1;
 
@@ -73,6 +85,13 @@ $(function() {
 
 		$('#addPointTr' + addPointIndx).after(addTags);
 		document.getElementById('hKinmBeanListSize').value = nextIndex + 1;
+
+		/**
+		 * ※重要※
+		 * 処理が終わってから次の追加処理を行えるようにしないと
+		 * submit時にDom上のリストとpostされるlistのサイズが整合性が合わなくなり落ちる。
+		 */
+		submit_flg = true;
   });
 
   /**
@@ -80,26 +99,32 @@ $(function() {
    */
   $('#delButton').click(function () {
 
-	  var delchkArray = $('.delchk:checked');
+		var delchkArray = $('.delchk:checked');
 
-	  if(delchkArray.length == 0) {
+		if (delchkArray.length == 0) {
 
-		  alert("ひとつ以上チェックを付けてください。");
+			alert("ひとつ以上チェックを付けてください。");
+			return false;
+		}
 
-		  return false;
-	  }
+		if (submit_flg) {
+			return false;
+		}
 
-      $.each(delchkArray , function(i, value) {
+		$.each(delchkArray, function(i, value) {
 
-          var objStrArray = $(value).attr('id').split('_');
-          $('#addPointTr' + objStrArray[1]).hide();
-          document.getElementById('changeFlg_' + objStrArray[1]).value = "-1"
-      });
-  });
+			var objStrArray = $(value).attr('id').split('_');
+			$('#addPointTr' + objStrArray[1]).hide();
+			document.getElementById('changeFlg_' + objStrArray[1]).value = "-1"
+		});
+
+		submit_flg = true;
+  	});
 });
 
 /**
  * 変更フラグ更新
+ *
  * @param idx
  */
 function updChangeFlg(id_name) {
