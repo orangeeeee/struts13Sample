@@ -78,6 +78,8 @@ $(function() {
 			return false;
 		}
 
+		submit_flg = true;
+
 		var nextIndex = Number(document.getElementById('hKinmBeanListSize').value);
 		var addPointIndx = nextIndex - 1;
 
@@ -91,7 +93,7 @@ $(function() {
 		 * 処理が終わってから次の追加処理を行えるようにしないと
 		 * submit時にDom上のリストとpostされるlistのサイズが整合性が合わなくなり落ちる。
 		 */
-		submit_flg = true;
+		submit_flg = false;
   });
 
   /**
@@ -111,6 +113,8 @@ $(function() {
 			return false;
 		}
 
+		submit_flg = true;
+
 		$.each(delchkArray, function(i, value) {
 
 			var objStrArray = $(value).attr('id').split('_');
@@ -118,10 +122,28 @@ $(function() {
 			document.getElementById('changeFlg_' + objStrArray[1]).value = "-1"
 		});
 
+		submit_flg = false;
+  	});
+
+  /**
+   * PDF作成ボタン押下処理
+   */
+  $('#createPDF').click(function () {
+
+		if (submit_flg) {
+			return false;
+		}
 		submit_flg = true;
+
+		//coding here
+
+		submit_flg = false;
   	});
 });
 
+function getContextPath() {
+	return document.getElementById('contextPath').value;
+}
 /**
  * 変更フラグ更新
  *

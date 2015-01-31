@@ -71,8 +71,11 @@
 			</tr>
 		</table>
 	</div>
-	<html:button styleClass="button-s" styleId="addButton" property="buttonName">行追加</html:button>
-	<html:button styleClass="button-s" styleId="delButton" property="buttonName">行削除</html:button>
+	<div style="height:30px;">
+		<html:button styleClass="button-s" styleId="createPDF" property="buttonName">Create PDF</html:button>
+	</div>
+	<html:button styleClass="button-s" styleId="addButton" property="buttonName">Add row</html:button>
+	<html:button styleClass="button-s" styleId="delButton" property="buttonName">Del row</html:button>
 	<br>
 	<table  class="line-add-table">
 		<tr>
