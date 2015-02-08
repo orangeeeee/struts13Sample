@@ -127,6 +127,9 @@ $(function() {
 
   /**
    * PDF作成ボタン押下処理
+   * PDFをサーバー側で作成し、
+   * サーバーに配置後にWindowで表示させる場合に使う。
+   * 普通は、responseに設定するのでこんな小細工いらない。
    */
   $('#createPDF').click(function () {
 
@@ -136,6 +139,18 @@ $(function() {
 		submit_flg = true;
 
 		//coding here
+		var oForm = document.getElementById('inputForm');
+		var cpath =document.getElementById('contextPath').value;
+
+		var win = window.open('about:blank', 'subWindowName', 'width=400, height=300, menubar=no, toolbar=no, scrollbars=yes');
+		win.focus();
+		oForm.target = 'subWindowName';
+		oForm.method = "post";
+		oForm.action = cpath + "/fPdfCreate.do";
+		oForm.submit();
+		 //元のactionformに戻さないといけない？
+		oForm.target = "_self";
+
 
 		submit_flg = false;
   	});

@@ -53,6 +53,13 @@
 			input="/WEB-INF/jsp/f/fInput.jsp">
 			<forward name="success" path="/WEB-INF/jsp/f/fInput.jsp" />
 		</action>
+		<action name="fInputForm" path="/fPdfCreate"
+			type="jp.co.orangeeeee.f.action.FPdfCreateAction"
+			validate="false"
+			scope="request"
+			input="/WEB-INF/jsp/f/fsubwindow.jsp">
+			<forward name="success" path="/WEB-INF/jsp/f/fsubwindow.jsp" />
+		</action>
     </action-mappings>
 
 
